@@ -33,7 +33,7 @@ yarn install
 ### Step 2: Start Metro
 
 To start the Metro dev server:
-(Mostly automatically started when you run the app, Use this is not.)
+(Mostly automatically started when you run the app, Use this if not.)
 ```sh
 # Using npm
 npm start
