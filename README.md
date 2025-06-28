@@ -23,7 +23,7 @@ The app automatically generates multiple targeted search queries and opens them 
 ### Step 1: Clone and Install
 
 ```bash
-git clone [your-repository-url]
+git clone https://github.com/sanskarOH/EasySearch.git
 cd smart-search-tool
 npm install
 # or
@@ -33,7 +33,7 @@ yarn install
 ### Step 2: Start Metro
 
 To start the Metro dev server:
-
+(Mostly automatically started when you run the app, Use this is not.)
 ```sh
 # Using npm
 npm start
