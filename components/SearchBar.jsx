@@ -7,22 +7,23 @@ import {Text,
       } from 'react-native';
 import Check from './Check';
 const list = ['Video', 'File', 'Song', 'Zip/Archive', 'Book']
-const SearchBar = () => {
-  const [text, setText] = useState("")
+const SearchBar = ({searchText, onTextChange, selectedTypes, ontoggleType}) => {
   return (
     <View style={styles.container}>
       <Text style={[styles.label , {fontSize: 18}]}>Type here to Search:</Text>
       <TextInput
             placeholder='Type Here...'
             style={styles.input}
-            onChangeText={newText => setText(newText)}
+            onChangeText={onTextChange}
+            value={searchText}
             placeholderTextColor= "#666"
             
        />
        <Text style={[styles.label, {fontSize: 16}]}>Select the type of file:</Text>
-       {list.map((item) => <Check kry={item} label={item}/>)}
+       {list.map((item) => <Check key={item} label={item} isSelected={selectedTypes.includes(item)} onToggle={()=> ontoggleType(item)}/>)}
     </View>
   );
+  console.log(searchText)
 };
 
 const styles = StyleSheet.create({

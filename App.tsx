@@ -1,9 +1,27 @@
-import React from "react";
-import {Text , View, TextInput, StyleSheet , StatusBar} from 'react-native'
+import React, {useState} from "react";
+import {Text , View,  StyleSheet , StatusBar, Linking , Button} from 'react-native'
 import SearchBar from "./components/SearchBar";
-import CheckBrox from "./components/CheckBrox";
+import { generateDork } from "./logic/generateDork";
+
 
 const App = () => {
+    const [searchText, setSearchText] = useState("");
+    const [selectedTypes, setSelectedTypes] = useState(/** @type {string[]} */ ([]));
+
+    const toggleType= (type) => {
+        setSelectedTypes(prev =>
+            prev.includes(type)
+                ? prev.filter(t => t !== type)
+                : [...prev, type]
+        )
+    }
+
+    const handleSearch = () =>{
+        const dork = generateDork(searchText, selectedTypes);
+        console.log(dork)
+        const url = `https://www.google.com/search?q=${encodeURIComponent(dork)}`;
+        Linking.openURL(url)
+    }
 
     return(
         <>
@@ -14,7 +32,13 @@ const App = () => {
             <Text style={styles.textSmall}>
                 Smart search using google dorks
             </Text>
-            <SearchBar />
+            <SearchBar
+                searchText={searchText}
+                onTextChange={setSearchText}
+                selectedTypes={selectedTypes}
+                ontoggleType={toggleType}
+             />
+            <Button title="Search" onPress={handleSearch}/>
 
         </View>
         </>

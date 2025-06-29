@@ -2,14 +2,12 @@ import React, { useState } from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
 
-const Check = ({label}) => {
-    const [toggleCheckBox, setToggleCheckbox] = useState(false);
+const Check = ({label, isSelected, onToggle}) => {
   return (
     <View style={styles.checkBoxContainer}>
       <CheckBox
-        disabled={false}
-        value={toggleCheckBox}
-        onValueChange={(newValue) => setToggleCheckbox(newValue)}
+        value={isSelected}
+        onValueChange={onToggle}
         tintColors={{true:'#000'}}
       />
       <Text style={styles.label}>{label}</Text>
