@@ -23,7 +23,7 @@ const SearchBar = ({searchText, onTextChange, selectedTypes, ontoggleType}) => {
        {list.map((item) => <Check key={item} label={item} isSelected={selectedTypes.includes(item)} onToggle={()=> ontoggleType(item)}/>)}
     </View>
   );
-  console.log(searchText)
+  
 };
 
 const styles = StyleSheet.create({
