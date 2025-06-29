@@ -1,6 +1,7 @@
 import React from "react";
 import {Text , View, TextInput, StyleSheet , StatusBar} from 'react-native'
 import SearchBar from "./components/SearchBar";
+import CheckBrox from "./components/CheckBrox";
 
 const App = () => {
 

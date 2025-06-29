@@ -5,13 +5,13 @@ import {Text,
         StyleSheet
         
       } from 'react-native';
-
-
+import Check from './Check';
+const list = ['Video', 'File', 'Song', 'Zip/Archive', 'Book']
 const SearchBar = () => {
   const [text, setText] = useState("")
   return (
     <View style={styles.container}>
-      <Text style={styles.label}>Type here to Search</Text>
+      <Text style={[styles.label , {fontSize: 18}]}>Type here to Search:</Text>
       <TextInput
             placeholder='Type Here...'
             style={styles.input}
@@ -19,6 +19,8 @@ const SearchBar = () => {
             placeholderTextColor= "#666"
             
        />
+       <Text style={[styles.label, {fontSize: 16}]}>Select the type of file:</Text>
+       {list.map((item) => <Check kry={item} label={item}/>)}
     </View>
   );
 };
@@ -30,14 +32,15 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: "#fff",
     borderRadius: 10,
-    borderColor: "D1D5DB",
+    borderColor: "#D1D5DB",
     borderWidth: 1,
     fontFamily: "monospace",
-    alignSelf: "center"
+    alignSelf: "center",
+    gap: 10
   },
   label:{
-    color: "4B5563",
-    fontSize: 14,
+    color: "#4B5563",
+    // fontSize: 18,
     fontWeight: "bold",
     marginBottom: 8
 
@@ -50,7 +53,7 @@ const styles = StyleSheet.create({
     borderColor: "#D1D5DB",
     borderWidth: 1,
     borderRadius: 10,
-    backgroundColor: "F3F4F6",
+    backgroundColor: "#F3F4F6",
     shadowColor: "#000",
     shadowOffset: {width: 0 , height:1},
     shadowOpacity: 0.05,
