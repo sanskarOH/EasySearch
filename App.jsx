@@ -2,6 +2,9 @@ import React, {useState} from "react";
 import {Text , View,  StyleSheet , StatusBar, Linking , TouchableOpacity, Alert} from 'react-native'
 import SearchBar from "./components/SearchBar";
 import { generateDork } from "./logic/generateDork";
+import Footer from "./components/Footer";
+import Login from "./screens/Login";
+import SignUp from "./screens/SignUp";
 
 
 const App = () => {
@@ -35,7 +38,7 @@ const App = () => {
 
     return(
         <>
-        <View style={styles.container}>
+        {/* <View style={styles.container}>
             <Text style={styles.text}>
                 EasySearch
             </Text>
@@ -52,7 +55,13 @@ const App = () => {
                 <Text style={styles.buttonText}>Search</Text>
             </TouchableOpacity>
 
-        </View>
+
+            <Footer/>
+
+        </View> */}
+        {/* <Login/> */}
+        <SignUp />
+        
         </>
     )
 
@@ -83,8 +92,11 @@ const styles = StyleSheet.create({
     },
     buttonMain:{
         display : 'flex',
+        width: '100%',
+        maxWidth: 380,
         justifyContent: 'center',
         alignItems: 'center',
+        alignSelf: 'center',
         paddingVertical: 10,
         paddingHorizontal: 15,
         gap: 15,
@@ -102,4 +114,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default App
+export default App;

@@ -6,6 +6,8 @@ import {Text,
         
       } from 'react-native';
 import Check from './Check';
+
+
 const list = ['Video', 'File', 'Song', 'Zip/Archive', 'Book']
 const SearchBar = ({searchText, onTextChange, selectedTypes, ontoggleType}) => {
   return (
@@ -21,6 +23,7 @@ const SearchBar = ({searchText, onTextChange, selectedTypes, ontoggleType}) => {
        />
        <Text style={[styles.label, {fontSize: 16}]}>Select the type of file:</Text>
        {list.map((item) => <Check key={item} label={item} isSelected={selectedTypes.includes(item)} onToggle={()=> ontoggleType(item)}/>)}
+  
     </View>
   );
   
